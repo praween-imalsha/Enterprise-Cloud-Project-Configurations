@@ -1,0 +1,16 @@
+spring:
+  mvc:
+    problemdetails:
+      enabled: true
+
+  mongodb:
+    host: localhost
+    port: 13700
+    database: user-db
+    username: root
+    password: mongodb
+    authentication-database: admin
+
+server:
+  port: 8001
+

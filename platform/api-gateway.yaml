@@ -1,0 +1,29 @@
+spring:
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: user-service
+              uri: http://localhost:8001
+              predicates:
+                - Path=/api/v1/users/**
+
+            - id: product-service
+              uri: http://localhost:8000
+              predicates:
+                - Path=/api/v1/products/**
+
+
+          default-filters:
+            - PreserveHostHeader
+
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allowedOrigins: "http://localhost:5173"
+                allowed-methods: "*"
+                allowed-headers: "*"
+server:
+  port: 7001
